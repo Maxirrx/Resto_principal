@@ -91,7 +91,7 @@ services:
     # ================================
     nginx:
         image: nginx:1.25-alpine
-        container_name: resto-nginx
+        container_name: moh-mor-nginx
         restart: unless-stopped
         ports:
             - "80:80"
