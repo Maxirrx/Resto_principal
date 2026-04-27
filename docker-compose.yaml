@@ -107,7 +107,7 @@ services:
         networks:
             resto-network:
             caddy_net:
-            resto_network:
+            moh-mor-network:
                 ipv4_address: 172.28.0.50
         healthcheck:
             test: [ "CMD", "nginx", "-t" ]
@@ -186,7 +186,7 @@ volumes:
 networks:
     resto-network:
         name: resto-network
-    resto_network:
+    moh-mor-network:
         external: true
     caddy_net:
         external: true
