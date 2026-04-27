@@ -188,3 +188,5 @@ networks:
         name: resto-network
     resto_network:
         external: true
+    caddy_net:
+        external: true
