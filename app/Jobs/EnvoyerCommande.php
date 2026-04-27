@@ -32,7 +32,7 @@ class EnvoyerCommande implements ShouldQueue
         $response = Http::post($restaurant->url . '/order', ['products' => $produits,]);        //conversion vers l api de restaurant
         if ($response->successful()) {
             $data = $response->json();
-            $commande->commande_externe_uuid = $data->data->id;
+            $commande->commande_externe_uuid = $data;
             $commande->end =  true;
             $commande->save();
         }

@@ -105,12 +105,19 @@ services:
         depends_on:
             - app
         networks:
-            - resto-network
+            resto-network:
+            caddy_net:
+            resto_network:
+                ipv4_address: 172.28.0.50
         healthcheck:
             test: [ "CMD", "nginx", "-t" ]
             interval: 30s
             timeout: 10s
             retries: 3
+        labels:
+            - "CssSexy=true"
+            - "project=4"
+
 
     # ================================
     # Laravel Queue Worker
@@ -179,3 +186,5 @@ volumes:
 networks:
     resto-network:
         name: resto-network
+    resto_network:
+        external: true
