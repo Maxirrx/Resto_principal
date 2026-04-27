@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCommandeRequest;
 use App\Http\Requests\UpdateCommandeRequest;
 use App\Models\Commande;
-use CommandeService;
+use App\Service\CommandeService;
 
 class CommandeController extends Controller
 {

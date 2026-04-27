@@ -2,9 +2,12 @@
 
 namespace App\Jobs;
 
+use App\Models\Commande;
 use App\Models\Contenu_Commande;
+use App\Models\Restaurant;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
+use Http;
 
 class EnvoyerCommande implements ShouldQueue
 {
@@ -26,10 +29,10 @@ class EnvoyerCommande implements ShouldQueue
         $commande = Commande::find($this->commande_id);
         $restaurant = Restaurant::find($commande->restaurant_id);
         $produits = Contenu_Commande::where("commande_id", $this->commande_id)->pluck('product_id')->toArray();
-        $response = Http::post($restaurant->url . '/order', ['produits' => $produits,]);
+        $response = Http::post($restaurant->url . '/order', ['products' => $produits,]);        //conversion vers l api de restaurant
         if ($response->successful()) {
             $data = $response->json();
-            $commande->commande_externe_uuid = $data;
+            $commande->commande_externe_uuid = $data->data->id;
             $commande->end =  true;
             $commande->save();
         }

@@ -17,5 +17,10 @@ class RestaurantSeeder extends Seeder
             "name" => "Burgouze",
             "url" => "http://37.187.136.196:8000"
         ]);
+
+        DB::table('users')->insert([
+            "name" => "max",
+            "password" => "passsword hasher"
+        ]);
     }
 }

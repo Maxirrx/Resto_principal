@@ -9,7 +9,7 @@ class Contenu_Commande extends Model
 {
     /** @use HasFactory<\Database\Factories\ContenuCommandeFactory> */
     use HasFactory;
-
+    protected $table = 'contenu_commandes';
     protected $fillable = ["commande_id", "product_id"];
     public $timestamps = false;
 
