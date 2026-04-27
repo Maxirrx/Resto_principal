@@ -15,7 +15,7 @@ class RestaurantSeeder extends Seeder
     {
         DB::table('restaurants')->insert([
             "name" => "Burgouze",
-            "url" => "url"
+            "url" => "http://37.187.136.196:8000"
         ]);
     }
 }

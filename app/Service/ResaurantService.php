@@ -19,7 +19,7 @@ class ResaurantService
         $response = "";
         if($resto->name == "Burgouze"){
             $response = Http::get($resto->url . "/products");
-        }if($resto->name == "")
+        }
         return $response->json();
     }
 
