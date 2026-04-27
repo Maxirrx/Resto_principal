@@ -93,9 +93,6 @@ services:
         image: nginx:1.25-alpine
         container_name: moh-mor-nginx
         restart: unless-stopped
-        ports:
-            - "80:80"
-            - "443:443"
         volumes:
             - .:/var/www/html
             - app_vendor:/var/www/html/vendor
