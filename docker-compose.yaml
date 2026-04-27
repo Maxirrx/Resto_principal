@@ -64,7 +64,7 @@ services:
         volumes:
             - .:/var/www/html
             - app_vendor:/var/www/html/vendor
-            - ./docker/php-fpm/php-fpm.conf:/usr/local/etc/php-fpm.d/www.conf
+            - ./docker/php-fpm/php-fpm.conf:/usr/local/etc/php-fpm.d/docker.conf
         environment:
             APP_ENV: production
             APP_KEY: ${APP_KEY:-default_key}
