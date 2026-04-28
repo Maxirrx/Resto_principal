@@ -166,7 +166,8 @@ services:
             redis:
                 condition: service_healthy
         networks:
-            - resto-network
+            resto-network:
+                ipv4_address: 172.29.0.10
         profiles:
             - dev
 
@@ -183,6 +184,9 @@ volumes:
 networks:
     resto-network:
         name: resto-network
+        ipam:
+            config:
+                - subnet: 172.29.0.0/16
     moh-mor-network:
         external: true
     caddy_net:
